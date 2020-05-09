@@ -1,0 +1,357 @@
+%span {
+    display: block;
+    color: map-get($colors , green);
+    font-size: $_16px;
+    font-weight: $bold;
+    text-transform: $capital;
+}
+
+%footer-icon {
+    text-indent: -9999px;
+    display: inline-block;
+  
+    &::before {
+        width: 20px;
+        height: 20px;
+         padding: 10px;
+        border-radius: 50%;
+        background-color: map-get($colors, footer-form);
+        float: left;
+        text-indent: 0;
+        font-family: "Fontawesome";
+        color: map-get($colors , white);
+        font-size: $_16px;
+        text-align: center;
+        vertical-align: middle;
+    }
+}
+
+
+
+
+footer {
+    width: 100%;
+    padding: 3% 0;
+    position: relative;
+    background-color: map-get($colors, footer-bg);
+
+    .wrapper { 
+        width: 81.54%;
+        margin: 0 auto;
+
+        @include breakpoint('ipad') {
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        @include breakpoint('phone') {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        @include breakpoint('iphone') {
+            width: 75%;
+            margin: 0 auto;
+        }
+
+    }
+
+    .footer-content {
+        padding-bottom: 25px;
+        border-bottom: 1px solid map-get($colors, footer-form);
+        margin-bottom: 25px;
+        @include display(flex, space-between, flex-start, nowrap);
+
+        @include breakpoint('ipad'){
+            flex-wrap: wrap;
+            flex-direction: row;
+            text-align: center;
+        }
+
+        @include breakpoint('phone'){
+            @include display(flex, center, center, wrap);
+            flex-direction: column;
+            text-align: center;
+        }
+
+        &_details{
+
+            @include breakpoint('phone'){
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            h6 {
+                margin-bottom: 30px;
+                figure {width: 100%;}
+            }
+
+            ul {
+
+                li {
+                    display: block;
+                    margin-bottom: 20px;
+
+                    span {
+                        margin-bottom: 10px;
+                        @extend %span;
+                    }
+
+                    a {
+                        display: block;
+                        color: map-get($colors , white);
+                        font-size: $_14px;
+                    }
+                }
+                
+            }
+        }
+
+        &_pages{
+            width: 12%;
+            margin: 0 4%;
+
+            @include breakpoint('notebook') {margin: 0 2%;}
+            @include breakpoint('ipad') {margin: 0;}
+            
+            @include breakpoint('phone'){
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            span {
+                margin-bottom: 40px;
+                @extend %span;
+                color: map-get($colors , white);
+                font-size: $_20px;
+
+                @include breakpoint('phone'){ font-size: $_18px;}
+            }
+
+            .footer_nav {
+
+                li {
+                    display: block;
+                    margin-bottom: 20px;
+
+                    a {
+                        color: map-get($colors , tab-icon); 
+                    }
+                }
+            }
+        }
+
+        &_articles{
+            @include breakpoint('notebook') { margin-right: 10px;}
+
+            @include breakpoint('ipad') {
+                width: 52%;
+                margin: 0 auto;
+                margin-bottom: 20px;
+            }
+
+            
+            @include breakpoint('phone'){
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            > span {
+                margin-bottom: 40px;
+                @extend %span;
+                color: map-get($colors , white);
+                font-size: $_20px;
+
+                @include breakpoint('phone'){ font-size: $_18px;}
+                
+            }
+
+            .articles {
+                margin-bottom: 20px;
+                @include display(flex, space-between, center, nowrap);
+
+                @include breakpoint('phone') {
+                    @include display(flex, center, center, wrap);
+                    flex-direction: column;
+                }
+
+                img{ 
+                    @include border-radius(5px);
+                    
+                    @include breakpoint('phone') {margin-bottom: 7px;}
+                }
+
+                &_content {
+                    flex-basis: 60%;
+
+                    @include breakpoint('notebook') { flex-basis: 50%;}
+
+                    p{
+                        margin-bottom: 8px;
+                        color: map-get($colors , white);
+                        font-size: $_12px; 
+                        font-weight: $bold;
+                        letter-spacing: .5px;
+                        line-height: 1.5;
+                    }
+
+                    span {
+                        @extend %span;
+                        color: map-get($colors ,tab-icon);
+                        font-size: $_12px; 
+                        font-weight: $regular;
+                    }
+                }
+            }
+        }
+
+        &_newsletter{
+            width: 40%;
+
+            @include breakpoint('notebook'){width: 53%;}
+
+            @include breakpoint('ipad') {
+                width: 52%;
+                margin: 0 auto;
+            }
+
+            @include breakpoint('phone'){
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            > span {
+                margin-bottom: 40px;
+                @extend %span;
+                color: map-get($colors , white);
+                font-size: $_20px;
+
+                @include breakpoint('phone'){ font-size: $_18px;}
+
+            }
+
+            .footer-newsletter {
+                padding: 7% 7% 12%;
+                @include border-radius(5px);
+                background-color: map-get($colors , footer-form);
+
+                > span {
+                    margin-bottom: 30px;
+                    @extend %span;
+                    color: map-get($colors , white);
+                    font-size: $_16px;
+                    font-weight: $medium;
+                }
+
+                form {
+                    margin-bottom: 20px;
+
+                    input {
+                        width: 70%;
+                        padding: 14px 0 14px 15px;
+                        border: none;
+                        border-top-left-radius: 5px;
+                        border-bottom-left-radius: 5px;
+                        
+                        &::placeholder {
+                            font-size: $_12px;
+                            text-transform: $capital;
+                        }
+                    }
+
+                    button {
+                        padding: 14px 20px;
+                        border: none;
+                        border-top-right-radius: 5px;
+                        border-bottom-right-radius: 5px;
+                        margin-left: -4px; 
+                        display: inline-block;
+                        text-indent: -9999px;
+                        background-color: map-get($colors , green);
+
+                        @include breakpoint('iphone'){ padding: 14px 16px;}
+
+                        &::before{
+                            content: '\f1d8';
+                            float: left;
+                            font-family: 'Fontawesome';
+                            text-indent: 0;
+                            color: map-get($colors , white);
+                            font-size: $_14px;
+                        }
+                    }
+                }                
+             
+                p {
+                    color: map-get($colors , tab-icon);
+                    font-size: $_14px;
+                    line-height: 1.5;
+                    letter-spacing: .3px;
+
+                    @include breakpoint('iphone'){  font-size: $_12px; }
+                }
+            }
+        }
+    }
+}
+
+.footer-bottom {
+    @include display(flex, space-between, center, nowrap);
+
+    @include breakpoint('phone') {
+        @include display(flex, center, center, wrap);
+        flex-direction: column;
+    }
+
+    p {
+        color: map-get($colors , tab-icon);
+        font-size: $_14px;
+
+        @include breakpoint('phone') { margin-bottom: 30px; }
+        @include breakpoint('iphone') { font-size: $_9px;}
+
+        a {
+            color: map-get($colors , white);
+        @include breakpoint('iphone') { font-size: $_9px;}
+
+        }
+    }
+
+    .footer-content_icon {
+        li:not(:first-of-type) { margin-left: 7px; }
+
+        li a {
+            @extend %footer-icon; 
+          transition: (.5s);
+
+          @include breakpoint('iphone') {
+           &::before{
+                width: 15px;
+                height: 15px;
+                font-size: $_14px;
+            }             
+          }
+
+          &:hover { opacity: .7;}
+        }
+
+        & .facebook::before {content: '\f09a';}
+        & .linkedin::before {content: '\f0e1';}
+        & .twitter::before {content: '\f099';}
+        & .google::before {content: '\f0d5';}
+        & .github::before {content: '\f09b';}
+    }
+}
+
+.to-top a {
+    @extend %footer-icon; 
+    position: fixed;
+    right: 1%;
+    bottom: 17%;
+
+    &::before {
+        content: '\f106';
+        background-color: map-get($colors, pink);
+        font-size: $_18px;
+    }
+}

@@ -1,0 +1,82 @@
+@mixin vendor($property, $content) {
+    -webkit-#{$property}: $content;
+    -moz-#{$property}: $content;
+    -ms-#{$property}: $content;
+    -o-#{$property}: $content;
+    #{$property}: $content;
+}
+
+@mixin transition($seconds) {
+    -webkit-transition: all $seconds linear;
+    -moz-transition: all $seconds linear;
+    -o-transition: all $seconds linear;
+    transition: all $seconds linear;
+}
+
+@mixin border-radius($radius) {
+    -moz-border-radius   : $radius;
+  -webkit-border-radius :  $radius;
+   border-radius: $radius; 
+}
+
+@mixin position($position, $zIndex, $top, $left, $bottom, $right) {
+    position: $position;
+    top: $top;
+    left: $left;
+    bottom: $bottom;
+    right: $right;
+    z-index: $zIndex;
+}
+
+@mixin display($flex, $justify, $align, $wrap) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -moz-box;
+    display: $flex;
+    -webkit-box-pack: $justify;
+		-ms-flex-pack: $justify;
+    justify-content: $justify;
+    -webkit-box-align: $align;
+	-moz-box-align: $align;
+	-ms-flex-align: $align;
+	-webkit-align-items: $align;
+    align-items: $align;
+	-webkit-flex-wrap:  $wrap;
+	-ms-flex-wrap:  $wrap;
+    flex-wrap: $wrap;
+}
+
+@mixin flex-direction($direction) {
+	-webkit-flex-direction: $direction;
+	-moz-flex-direction: $direction;
+	-ms-flex-direction: $direction;
+	flex-direction: $direction;
+}
+
+@mixin breakpoint($device) {
+    @if ($device == 'notebook') {
+        @media screen and (max-width : $notebook){
+            @content;
+        }
+    }
+    @else if($device  == 'ipad') {
+        @media screen and (max-width : $ipad){
+            @content;
+        }
+    }
+    @else if($device  == 'phone') {
+        @media screen and (max-width : $phone){
+            @content;
+        }
+    }
+    @else if($device  == 'iphone') {
+        @media screen and (max-width : $iphone){
+            @content;
+        }
+    }
+    @if ($device == 'small-iphone') {
+        @media screen and (max-width : $small-iphone){
+            @content;
+        }
+    } 
+}

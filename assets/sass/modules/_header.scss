@@ -1,0 +1,227 @@
+%font-icon {
+    text-indent: -9999px;
+    display: inline-block;
+  
+    &::before {
+        float: left;
+        text-indent: 0;
+        font-family: "Fontawesome";
+        color: map-get($colors , white);
+        font-size: $_16px;
+    }
+  }
+
+// top header
+.top-header {
+    background-color: map-get($colors , black);
+    @include breakpoint('phone') {display: none;}
+
+    .wrapper {
+        @include display(flex, space-between, center, nowrap);
+    }
+
+ #{&}_btn {
+        padding: 13px 27px;
+        @include display(flex, center, normal, nowrap);
+        background-color: map-get($colors , pink );
+        color: map-get($colors , white);
+        transition: (.5s);
+        cursor: pointer;
+        
+        a{
+          @extend %font-icon;
+
+            &::before {
+                content: '\f007';
+                padding-right: 5px;
+            }
+        }
+        span {
+            display: inline-block;
+            font-size: $_16px;
+            text-transform: $capital;
+        }
+
+        &:hover {
+            opacity: .7;
+        }
+    }
+
+    #{&}__social-icon {
+        width: 62%;
+        display: inline-block;
+
+        @include breakpoint('notebook'){width: 50%;}
+        
+        li:not(:last-of-type) { margin-right: 11px; }
+    
+        li a { @extend %font-icon; 
+          transition: (.5s);
+
+          &:hover { opacity: .7;}
+        }
+
+        & .icon_facebook::before {content: '\f09a';}
+        & .icon_instagram::before {content: '\f16d';}
+        & .icon_twitter::before {content: '\f099';}
+        & .icon_vimeo::before {content: '\f27d';}
+        & .icon_linkedin::before {content: '\f0e1';}
+    }
+
+    #{&}__contact {
+      width: 25%;
+      @include display(flex, space-between, center, nowrap);
+      @include breakpoint('notebook'){width: 32%;}
+
+      a {
+        @extend %font-icon; 
+
+        &:nth-of-type(2){padding-left: 25px;}
+      }
+
+      & .contact_number::before { content: '\f10b';}
+      & .contact_email::before { content: '\f003';}
+
+      span {
+        display: inline;
+        font-size: $_14px;
+        text-transform: $capital;
+        color: map-get($colors , white);
+        letter-spacing: .5px;
+    }
+
+    }
+}
+
+
+//bottom header
+
+.bottom_header {
+  width: 100%;
+  padding-top: 20px;
+  position: absolute;
+  z-index: 1;
+
+  @include breakpoint('phone'){    
+    padding: 15px 0; 
+    position: relative;
+    background-color: map-get($colors , black);
+  }
+
+  .wrapper {
+    @include display(flex, space-between, center, nowrap);
+}
+
+  .nav_burger {
+    width: 45%;
+
+    .burger { 
+      width : 22px;
+      float: right;
+      display: none;
+      position: relative;
+      @include transition(.5s);
+      cursor: pointer;
+ 
+      & span {
+        width : 22px;
+        height: 3px;
+        margin: 3px 0;
+        display: block;
+        text-indent: -9999px;
+        background-color: map-get($colors , white);
+        @include transition(.5s);
+        
+      }
+ 
+      @include breakpoint('phone'){ 
+        display: block;
+        @include position(absolute, 1, 35%, unset, unset, 2%);
+       }
+    }
+ 
+  }
+
+  nav {
+    @include display(flex, unset, center, nowrap);
+    @include breakpoint('phone'){ display: none;}
+
+    .nav_links {
+      width: 100%;
+      @include display(flex, space-between, center, nowrap);
+
+      a {
+        font-size: $_12px;
+        font-weight: $bold;
+        text-transform: $upper;
+        color: map-get($colors , white);
+        letter-spacing: .5px;
+        @include transition(.5s);
+
+        &:hover { opacity: .7;}
+      }
+    }
+  }
+
+  #{&}_form {
+    width: 20%;
+    position: relative;
+
+    @include breakpoint('notebook'){ width: 25%}
+    @include breakpoint('phone'){ 
+      width: 0; 
+      position: unset;
+    }
+
+    input[type="text"]{
+      width: 100%;
+      padding: 7% 0;
+      border: 2px solid map-get($colors , white);
+      z-index: -1;
+      @include border-radius(5px);
+      outline: none;
+      background: none;
+      color: map-get($colors , white);
+      font-size: $_14px;
+
+      @include breakpoint('phone'){ display: none;}
+
+      &::placeholder {
+        padding-left: 5%;
+        color: map-get($colors , white);
+        font-size: $_14px;
+        letter-spacing: .5px;
+        text-transform: $capital;
+      }
+    }
+
+    button {
+      width: 25%;
+      padding: 5% 10%;
+      border: none;
+    @extend %font-icon; 
+    @include border-radius(5px);
+    @include position(absolute, 1, 14%, 74%, unset, unset);
+    background-color: map-get($colors , pink );
+
+    &::before { 
+      content: '\f002';
+      text-align: center;
+    }
+
+    @include breakpoint('phone') {
+      width: 0;
+      padding: 0;
+      @include position(absolute, 1, 38%, unset, unset, 12%);
+      background: none;
+    }
+
+    
+    @include breakpoint('iphone') {
+      right: 15%;
+    }
+
+    }
+  }
+
+}

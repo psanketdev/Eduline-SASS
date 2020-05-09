@@ -1,0 +1,197 @@
+%course-icon {
+    text-indent: -9999px;
+    display: inline-block;
+  
+    &::before {
+        float: left;
+        text-indent: 0;
+        font-family: "Fontawesome";
+        color: map-get($colors ,tab-icon);
+        font-size: $_14px;
+    }
+}
+
+
+
+//online course section
+
+.online-courses {
+    width: 100%;
+    margin: 7% 0 5%;
+
+    .wrapper { width: 81.54%;}
+
+    #{&}_content {
+        box-sizing: border-box;
+        width: 100%;
+       margin-bottom: 6%;
+        @include display(flex, unset, center, nowrap);
+        
+        @include breakpoint('ipad'){
+            @include display(flex, unset, center, wrap);
+            flex-direction: column;
+        }
+
+       h3 { 
+            color: map-get($colors , black);   
+            flex-basis: 75%;
+            font-weight: $bold;
+            font-size: $_40px;
+            line-height: 1.2;
+            vertical-align: middle;
+            text-transform: $capital;
+
+            @include breakpoint('notebook'){font-size: $_35px;}         
+            @include breakpoint('ipad'){ margin-bottom: 20px;}
+            @include breakpoint('phone'){font-size: $_30px;}
+            @include breakpoint('iphone'){font-size: $_18px;} 
+            @include breakpoint('small-iphone') {font-size: $_15px;}        
+       }
+
+       p {
+            color: map-get($colors , p-text);
+            margin-left: 6%;
+            font-size: $_14px;
+            line-height: 1.5;
+            letter-spacing: .5px;
+
+            @include breakpoint('ipad'){ 
+                padding: 0 12%;
+                margin-left: 0;
+                text-align: center;    
+            }
+
+            @include breakpoint('iphone'){
+                padding: 0 ;
+                font-size: $_12px;
+            }         
+
+       }
+    }
+
+    #{&}_tabs {
+        width: 100%;
+
+        .online-courses-links {
+            width: 100%;
+            margin-bottom: 4%;
+            display: inline-block;
+
+            @include breakpoint('iphone') {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            li:not(:last-of-type){ 
+                margin-right: 25px;
+
+                @include breakpoint('iphone')  {
+                    margin-right: 15px;  
+                }
+
+            }
+            li:nth-child(1) a {color: map-get($colors , green); }
+
+            li a  {
+                color: map-get($colors , black);
+                font-size: $_16px;
+                font-weight: $bold;
+                text-transform: $capital;
+                @include transition(.5s);
+
+                @include breakpoint('iphone'){ font-size: $_11px;}
+
+                &:hover {color: map-get($colors , green); }
+            }
+        }
+    }
+
+    .online-courses-content {
+        width: 100%;
+        @include display(flex, space-between, unset, wrap);
+
+        @include breakpoint('ipad') {
+            @include display(flex, space-evenly, unset, wrap);
+
+        }
+            .tab-content {
+            box-sizing: border-box;
+            margin-bottom: 30px;
+            box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+
+            figure {width: 100%;
+            
+                img {
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                }
+            }
+
+            .tab-content_data {
+                padding: 30px 20px;
+                background-color: map-get($colors , tab-bg);
+
+                & span:nth-child(1) {
+                    margin-bottom: 8px;
+                    display: block;
+                    color: map-get($colors , green);
+                    font-size: $_12px;
+                    font-weight: $bold;
+                    text-transform: $capital;
+
+                    + span {
+                        margin-bottom: 20px;
+                        display: block;
+                        color: map-get($colors , black);
+                        font-size: $_18px;
+                        font-weight: $bold;
+                        text-transform: $capital; 
+
+            @include breakpoint('iphone'){font-size: $_15px;}         
+
+                    }
+                }
+
+                ul{
+                    @include display(flex, space-between, center, wrap);
+
+                    li:nth-child(1) a { @extend %course-icon; }
+                    li:nth-child(2) a { @extend %course-icon; }
+
+                    & .view::before {content: '\f007';}
+                    & .like::before {content: '\f087';}
+
+                    span {
+                        padding-left: 5px;
+                        color: map-get($colors ,black);
+                        font-size: $_14px;
+                        vertical-align: text-top;
+                    }
+
+                    li:nth-child(3) a {
+                        padding: 7px 18px;
+                        border: 1px solid;
+                        @include border-radius(5px);
+                        color: map-get($colors ,white);
+                        font-weight: $bold;
+                        background-color: map-get($colors ,black);
+                        vertical-align: text-top;
+                        @include transition(.5s);
+
+                        &:hover {
+                            color: map-get($colors ,black);
+                            background-color: map-get($colors ,white);
+
+                            @include breakpoint('phone') {
+                                &:hover {
+                                    color: map-get($colors ,white);
+                                    background-color: map-get($colors ,black);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

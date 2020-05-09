@@ -1,0 +1,47 @@
+// //font-colors
+$colors: (
+    pink : #f30067,
+    green : #00d1cd,
+    white : #fff,
+    black : #252b33,
+    p-text :  #4a6374,
+    tab-bg : #f9fafb,
+    tab-icon : #bec3c3,
+    footer-bg : #1c2127,
+    footer-form : #2f3742
+);
+
+
+//font-weight 
+$_9px : 9px;
+$_10px : 10px;
+$_11px : 11px;
+$_12px : 12px;
+$_14px : 14px;
+$_15px : 15px;
+$_16px : 16px;
+$_17px : 17px;
+$_18px : 18px;
+$_20px : 20px;
+$_22px : 22px;
+$_25px : 25px;
+$_30px : 30px;
+$_35px : 35px;
+$_40px : 40px;
+
+//text-transform
+$upper : Uppercase;
+$capital : capitalize;
+
+//font-weight 
+$regular : 400;
+$medium :  600;
+$bold : 700;
+$extra-bold : 900;
+
+//breakpoints
+$notebook: 1024px;
+$ipad: 995px;
+$phone: 767px;
+$iphone: 540px;
+$small-iphone: 320px;
